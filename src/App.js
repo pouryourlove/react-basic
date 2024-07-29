@@ -3,10 +3,16 @@ import Greetings from "./components/Greetings";
 import { Fragment } from "react";
 
 function App(){
+  const myName = 'Julia'
+  const multiply = (a,b) => a * b; 
+  const specialClass = "simple-class"
   return (
   <>
-      <Add/> 
-      <Greetings/>
+      <h1>{myName}</h1>
+      <p>2+ 2 = {2+2}</p>
+      <p>my friends list:{["Yukka","Lingling","Yurika"]}</p>
+      <p>2*2 = {multiply(2,2)}</p>
+      <p className={specialClass}>This is a special class</p>
   </>
   )
 
