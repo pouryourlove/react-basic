@@ -3,16 +3,16 @@ import Greetings from "./components/Greetings";
 import { Fragment } from "react";
 
 function App(){
-  const myName = 'Julia'
-  const multiply = (a,b) => a * b; 
-  const specialClass = "simple-class"
+  // example #1
+  const numbers = [1,2,3,4,5]
+  
   return (
   <>
-      <h1>{myName}</h1>
-      <p>2+ 2 = {2+2}</p>
-      <p>my friends list:{["Yukka","Lingling","Yurika"]}</p>
-      <p>2*2 = {multiply(2,2)}</p>
-      <p className={specialClass}>This is a special class</p>
+    {numbers.map(number => (
+      <ul key={Math.random()*10}>
+        <li>{number}</li>
+      </ul>
+    ))}  
   </>
   )
 
@@ -46,3 +46,7 @@ export default App;
 //with jsx you can write expressions inside curly braces. The expression can be a react variable, 
 //or property, or any other valid javascript expression.
 //jsx will execute the expression and return the result
+
+//Lists
+//in react, you will render lists with some type of loop. the javascript map()array 
+//method is generally the preferred method
