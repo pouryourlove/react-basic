@@ -3,16 +3,34 @@ import Greetings from "./components/Greetings";
 import { Fragment } from "react";
 
 function App(){
-  // example #1
-  const numbers = [1,2,3,4,5]
+  
+  const userInfo = [
+    {
+      username: "Lingling",
+      email: "lingling@naver.com",
+      location:"UK"
+    },
+    {
+      username: "Yuuka",
+      email: "Yuuka@naver.com",
+      location:"Japan"
+    },
+    {
+      username: "Yurika",
+      email: "Yurika@naver.com",
+      location:"Thailand"
+    }
+  ]
   
   return (
   <>
-    {numbers.map(number => (
-      <ul key={Math.random()*10}>
-        <li>{number}</li>
-      </ul>
-    ))}  
+   {userInfo.map(user => (
+    <ul key = {Math.random()*10}>
+      <li>{user.username}</li>
+      <li>{user.email}</li>
+      <li>{user.location}</li>
+    </ul>
+   ))}
   </>
   )
 
@@ -50,3 +68,7 @@ export default App;
 //Lists
 //in react, you will render lists with some type of loop. the javascript map()array 
 //method is generally the preferred method
+
+//props/properties
+//props are arguments passed into react components
+//props are passed to components via html attributes
