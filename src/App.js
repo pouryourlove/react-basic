@@ -9,9 +9,9 @@ function App(){
       name = "zzong"
       age={18}
       hobbies={["Coding","Reading","Sleeping"]}
-      realData = {{name: "Alex", location:"USA"}}
-
-    />
+      realData = {{name: "Alex", location:"USA"}}>
+      <p>blahblahblahblahblahblahblahblahblahblahblahblahblah</p>
+    </User>
   </>
   )
 
