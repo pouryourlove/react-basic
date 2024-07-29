@@ -1,10 +1,15 @@
+import Add from "./components/Add";
+import Greetings from "./components/Greetings";
+import { Fragment } from "react";
+
 function App(){
   return (
-  <div>
-    <section>Seciton tag</section>
-    <article>article tag</article>
-  </div>
+  <>
+      <Add/> 
+      <Greetings/>
+  </>
   )
+
 }
 
 export default App;
@@ -30,3 +35,8 @@ export default App;
 
 //JSX
 //JSX allows us to write HTML in React. JSX makes it easier to write and add HTML in React.
+
+//Exprsesions in JS
+//with jsx you can write expressions inside curly braces. The expression can be a react variable, 
+//or property, or any other valid javascript expression.
+//jsx will execute the expression and return the result
