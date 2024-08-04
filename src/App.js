@@ -1,23 +1,147 @@
-import User from "./components/User";
+import './index.css'
+import Button from 'react-bootstrap/Button';
 
-function App(){
-    
+function Buttons() {
   return (
-  <>
-    <User
-      img="https://media.istockphoto.com/id/1285465107/ko/%EC%82%AC%EC%A7%84/%EB%85%B9%EC%83%89-%EB%92%B7%EB%A7%88%EB%8B%B9-%EC%9E%94%EB%94%94%EB%B0%AD%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8A%94-%EC%B6%A9%EC%84%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EA%B3%A8%EB%93%A0-%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%84-%EA%B0%9C%EA%B0%80-%EC%B9%B4%EB%A9%94%EB%9D%BC%EB%A5%BC-%EB%B0%94%EB%9D%BC%EB%B3%B4%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EC%B5%9C%EA%B3%A0-%ED%92%88%EC%A7%88%EC%9D%98-%EA%B0%9C-%ED%92%88%EC%A2%85-%ED%98%88%ED%86%B5-%ED%91%9C%EB%B3%B8%EC%9D%80-%EC%8A%A4%EB%A7%88%ED%8A%B8-%EA%B7%80%EC%97%AC%EC%9B%80-%EA%B3%A0%EA%B7%80%ED%95%9C-%EC%95%84%EB%A6%84%EB%8B%A4%EC%9B%80%EC%9D%84-%EB%B3%B4%EC%97%AC%EC%A4%8D%EB%8B%88%EB%8B%A4.jpg?s=612x612&w=0&k=20&c=JvkH_HEF6S2m5SqgfqTIIlVXxXZ9Eo0ByX9wPCLqtuo="
-      name = "zzong"
-      age={18}
-      hobbies={["Coding","Reading","Sleeping"]}
-      realData = {{name: "Alex", location:"USA"}}>
-      <p>blahblahblahblahblahblahblahblahblahblahblahblahblah</p>
-    </User>
-  </>
-  )
-
+    <>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="success">Success</Button>
+      <Button variant="warning">Warning</Button>
+      <Button variant="danger">Danger</Button>
+      <Button variant="info">Info</Button>
+      <Button variant="light">Light</Button>
+      <Button variant="dark">Dark</Button>
+      <Button variant="link">Link</Button>
+    </>
+  );
 }
 
-export default App;
+
+function App() {
+  return (
+    <>
+      <Buttons/>
+    </>
+  )
+}
+
+export default App
+
+
+
+
+
+
+
+
+
+// function App() {
+//   const differentStyles = {
+//     color: "white",
+//     backgroundColor:"crimson"
+//   }
+//   return (
+//     <>
+//     <h1 style={{color:"black",backgroundColor:"#ccc"}}>Hello Lingling</h1>
+//     <h2 style={differentStyles}>LingLing</h2>
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+// const ValidPassword = () => <h1>Valid Password</h1>
+// const InvalidPassword = () => <h1>Invalid Password</h1>
+
+// const Password = ({isValid}) => {
+//   // if(isValid){
+//   //   return <ValidPassword/>
+//   // }
+
+//   // return <InvalidPassword/>
+
+//   return isValid ? <ValidPassword/> : <InvalidPassword/>
+
+// }
+
+// function App(){
+    
+//   return (
+//   <>
+//     <Password isValid={true}/>
+//     <Password isValid={false}/>
+//   </>
+//   )
+
+// }
+
+// export default App;
+
+
+
+
+
+
+
+// const Cart = () => {
+//   const items = ["Wireless Earbuds","Power Bank","New SSD","Hoodies"]
+//   return(
+//   <> 
+//     <h1>Cart</h1>
+
+//     {items.length>0 && <h2>You have {items.length} items in your cart</h2>}
+
+//     <ul>
+//       <h4>Products</h4>
+//       {items.map((item) => (
+//         <li key={Math.random()}>{item}</li>
+//       ))}
+//     </ul>
+//   </>  
+//   )
+// }
+
+// function App() {
+//   return (
+//     <Cart />
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+// const ValidPassword = () => <h1>Valid Password</h1>
+// const InvalidPassword = () => <h1>Invalid Password</h1>
+
+// const Password = ({isValid}) => {
+//   if(isValid){
+//     return <ValidPassword/>
+//   }
+
+//   return <InvalidPassword/>
+// }
+
+// function App(){
+    
+//   return (
+//   <>
+//     <Password isValid={true}/>
+//     <Password isValid={false}/>
+//   </>
+//   )
+
+// }
+
+// export default App;
 
 
 
@@ -53,3 +177,6 @@ export default App;
 //props/properties
 //props are arguments passed into react components
 //props are passed to components via html attributes
+
+//conditional rendering
+//conditional rendering in React wors the same way conditions work in js. use js operators like if or the conditional operator to create elements representing the current state and let React update the UI to match them. 
