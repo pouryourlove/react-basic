@@ -1,33 +1,68 @@
-import React, { useState } from 'react'
+import { useState } from "react"
 
 function App() {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: "Before Sunrise",
-      ratings: 9,
-    },
-    {
-      id: 2,
-      title: "Before Sunset",
-      ratings: 10,
-    }
-  ]);
+  const [username, setUsername] = useState('')
 
-  const handleClick = () => {
-    setMovies(movies.map(m => m.id === 1? {...movies, title: "Before midnight"} : m))
+  const handleChange = (event) => {
+    setUsername(event.target.value);
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    alert(`You typed ${username}`)
+    setUsername('')
+  }
+
   return (
     <>
-      {movies.map((movie) => (
-        <li key={Math.random()}>{movie.title}</li>
-      ))}
-      <button onClick={handleClick}>Change Name</button>
+      <h1>Form Demo</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={username} onChange={handleChange}/>
+        <button>Submit</button>
+      </form>   
+     
     </>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+// import React, { useState } from 'react'
+
+// function App() {
+//   const [movies, setMovies] = useState([
+//     {
+//       id: 1,
+//       title: "Before Sunrise",
+//       ratings: 9,
+//     },
+//     {
+//       id: 2,
+//       title: "Before Sunset",
+//       ratings: 10,
+//     }
+//   ]);
+
+//   const handleClick = () => {
+//     setMovies(movies.map(m => m.id === 1? {...movies, title: "Before midnight"} : m))
+//   }
+//   return (
+//     <>
+//       {movies.map((movie) => (
+//         <li key={Math.random()}>{movie.title}</li>
+//       ))}
+//       <button onClick={handleClick}>Change Name</button>
+//     </>
+//   )
+// }
+
+// export default App
 
 
 
@@ -43,7 +78,7 @@ export default App
 
 //   const handleClick = () => {
 //     const copyMovie = {
-//       ...movie, 
+//       ...movie,
 //       ratings: 5,
 //     }
 
@@ -140,7 +175,7 @@ export default App
   
 //   const increment = () => {
 //     setCount(count + 1)
-// }  
+// }
 
 //   const decrement = () => {
 //     setCount(count -1)
@@ -383,3 +418,7 @@ export default App
 
 //useState()
 //The react useState hook allows us to track state in a function component. state generally refers to data or properties that need to be tracking in an application
+
+//useEffect()
+//The useEffect hook allows you to perform side effects in your components. 
+// some example of side effects are: fetching data, directly updating the DOM
