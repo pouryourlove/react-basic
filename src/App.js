@@ -1,34 +1,61 @@
-import { useEffect, useState } from "react";
+import ComponentA from "./components/ComponentA"
+import ComponentB from "./components/ComponentB"
+import ComponentC from "./components/ComponentC"
 
 function App() {
-  const [data, setData] = useState([]);
-
-  //1.Render for the first time
-  //2.Anytime we do (side effect)
-  //3. dependency list
-
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch("https://jsonplaceholder.typicode.com/posts")
-      const data = await response.json()
-      if(data && data.length) setData(data)
-    }
-    
-    getData()
-  });
-
+  const name = "Lingling"
   return (
     <>
-      <ul>
-        {data.map(item => (
-          <li key={Math.random()}>{item.title}</li>
-        ))}
-     </ul>
+      {/* <ComponentA name={name} />
+      <ComponentB /> */}
+      <ComponentC/>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
+
+
+
+
+
+
+
+
+
+
+
+// import { useEffect, useState } from "react";
+
+// function App() {
+//   const [data, setData] = useState([]);
+
+//   //1.Render for the first time
+//   //2.Anytime we do (side effect)
+//   //3. dependency list
+
+//   useEffect(() => {
+//     async function getData() {
+//       const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+//       const data = await response.json()
+//       if(data && data.length) setData(data)
+//     }
+    
+//     getData()
+//   });
+
+//   return (
+//     <>
+//       <ul>
+//         {data.map(item => (
+//           <li key={Math.random()}>{item.title}</li>
+//         ))}
+//      </ul>
+//     </>
+//   );
+// }
+
+// export default App;
 
 // import {useEffect, useState} from 'react'
 
