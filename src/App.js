@@ -1,37 +1,87 @@
-import { useState } from "react"
+import { useEffect, useState } from "react";
 
 function App() {
-  const [username, setUsername] = useState('')
+  const [data, setData] = useState([]);
 
-  const handleChange = (event) => {
-    setUsername(event.target.value);
-  }
+  //1.Render for the first time
+  //2.Anytime we do (side effect)
+  //3. dependency list
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    alert(`You typed ${username}`)
-    setUsername('')
-  }
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+      const data = await response.json()
+      if(data && data.length) setData(data)
+    }
+    
+    getData()
+  });
 
   return (
     <>
-      <h1>Form Demo</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={username} onChange={handleChange}/>
-        <button>Submit</button>
-      </form>   
-     
+      <ul>
+        {data.map(item => (
+          <li key={Math.random()}>{item.title}</li>
+        ))}
+     </ul>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
 
+// import {useEffect, useState} from 'react'
 
+// function App() {
+//   const [value, setValue] = useState(0)
 
+//   //1.Render for the first time
+//   //2.Anytime we do (side effect)
+//   //3. dependency list
 
+//   useEffect(() => {
+//     console.log("HELLO")
+//     document.title = `Increment(${value})`
+//   },[value])
 
+//   return (
+//     <>
+//       <h1>{value}</h1>
+//       <button onClick={() => setValue(value + 1)}>Click ME</button>
+//     </>
+//   );
+// }
 
+// export default App
+
+// import { useState } from "react"
+
+// function App() {
+//   const [username, setUsername] = useState('')
+
+//   const handleChange = (event) => {
+//     setUsername(event.target.value);
+//   }
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault()
+//     alert(`You typed ${username}`)
+//     setUsername('')
+//   }
+
+//   return (
+//     <>
+//       <h1>Form Demo</h1>
+//       <form onSubmit={handleSubmit}>
+//         <input type="text" value={username} onChange={handleChange}/>
+//         <button>Submit</button>
+//       </form>
+
+//     </>
+//   )
+// }
+
+// export default App
 
 // import React, { useState } from 'react'
 
@@ -64,10 +114,6 @@ export default App
 
 // export default App
 
-
-
-
-
 // import { useState } from "react"
 
 // function App() {
@@ -85,7 +131,7 @@ export default App
 //     setMovie(copyMovie)
 //     // seteMovie({...movie,ratings:5}) //이렇게 간단히 표현 가능
 //   }
- 
+
 //   return (
 //     <>
 //       <h1>{movie.title}</h1>
@@ -97,17 +143,11 @@ export default App
 
 // export default App
 
-
-
-
-
 // import { useState } from "react";
-
-
 
 // function App() {
 //   const [friends, setFriends] = useState(["Lingling","Yuuka"])
-  
+
 //   const addOne = () => {
 //     setFriends([...friends,"Zzong"])
 //   }
@@ -117,7 +157,7 @@ export default App
 //   const updateOne = () => {
 //     setFriends(friends.map(f => f === "Lingling" ? "Lingling Lee" : f))
 //   }
-  
+
 //   return (
 //     <>
 //       {friends.map(f => (
@@ -132,10 +172,6 @@ export default App
 // }
 
 // export default App;
-
-
-
-
 
 // import { useState } from 'react'
 
@@ -154,7 +190,6 @@ export default App
 //   );
 // }
 
-
 // function App() {
 //   return (
 //     <>
@@ -165,14 +200,11 @@ export default App
 
 // export default App
 
-
-
-
 // import { useState } from "react"
 
 // const Counter = () => {
 //   const [count, setCount] = useState(0);
-  
+
 //   const increment = () => {
 //     setCount(count + 1)
 // }
@@ -187,9 +219,6 @@ export default App
 //   </>
 // }
 
-
-
-
 // function App() {
 //   return (
 //     <div>
@@ -200,12 +229,7 @@ export default App
 
 // export default App
 
-
-
-
-
 // import { FaCartArrowDown, FaGithub } from "react-icons/fa";
-
 
 // function App() {
 //   return (
@@ -217,15 +241,6 @@ export default App
 // }
 
 // export default App
-
-
-
-
-
-
-
-
-
 
 // import './index.css'
 // import Button from 'react-bootstrap/Button';
@@ -246,7 +261,6 @@ export default App
 //   );
 // }
 
-
 // function App() {
 //   return (
 //     <>
@@ -256,14 +270,6 @@ export default App
 // }
 
 // export default App
-
-
-
-
-
-
-
-
 
 // function App() {
 //   const differentStyles = {
@@ -280,10 +286,6 @@ export default App
 
 // export default App
 
-
-
-
-
 // const ValidPassword = () => <h1>Valid Password</h1>
 // const InvalidPassword = () => <h1>Invalid Password</h1>
 
@@ -299,7 +301,7 @@ export default App
 // }
 
 // function App(){
-    
+
 //   return (
 //   <>
 //     <Password isValid={true}/>
@@ -310,12 +312,6 @@ export default App
 // }
 
 // export default App;
-
-
-
-
-
-
 
 // const Cart = () => {
 //   const items = ["Wireless Earbuds","Power Bank","New SSD","Hoodies"]
@@ -343,11 +339,6 @@ export default App
 
 // export default App
 
-
-
-
-
-
 // const ValidPassword = () => <h1>Valid Password</h1>
 // const InvalidPassword = () => <h1>Invalid Password</h1>
 
@@ -360,7 +351,7 @@ export default App
 // }
 
 // function App(){
-    
+
 //   return (
 //   <>
 //     <Password isValid={true}/>
@@ -372,10 +363,6 @@ export default App
 
 // export default App;
 
-
-
-
-
 // import { Component } from "react";
 // class App extends Component{
 //  To show content on the screen
@@ -383,10 +370,6 @@ export default App
 //     return <h1>Hello Lingling</h1>
 //   }
 // }
-
-
-
-
 
 //components
 //components are independent and reusable bits of code. They serve the same purpose as Javascript functions, but work in isolation and return HTML
@@ -420,5 +403,5 @@ export default App
 //The react useState hook allows us to track state in a function component. state generally refers to data or properties that need to be tracking in an application
 
 //useEffect()
-//The useEffect hook allows you to perform side effects in your components. 
+//The useEffect hook allows you to perform side effects in your components.
 // some example of side effects are: fetching data, directly updating the DOM
