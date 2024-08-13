@@ -1,17 +1,193 @@
-import ComponentA from "./components/ComponentA"
+import useFetch from "./useFetch"
 
-function App() {
-  const name = "Lingling"
+function App(){
+
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos")
+
+
+
   return (
     <>
-      <ComponentA name={name} />
-      
-      
+      {data && data.map(item => {
+        return (
+          <p key={item.id}>{item.title}</p>
+        )
+      })}
     </>
   )
 }
 
 export default App
+
+
+
+
+
+
+// import {useRef} from "react"
+
+// import React from 'react'
+
+// function App() {
+//   const inputElement = useRef(null)
+
+//   const focusInput = () => {
+//     inputElement.current.focus();
+//     inputElement.current.value = "lingling"
+//   }
+
+//   return (
+//     <>
+//       <input type="text" ref={inputElement}/>
+//       <button onClick={() => focusInput()}> Focus & write huxn</button>
+    
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+// import { useReducer } from "react";
+
+// // state: 
+// // dispatch: allow you to change the state data you already have
+//             //it's like setValue here [value,setValue]
+// //reducer: custom state logic like what do you want to do with the state
+// //initialtate: initial state. can be general value but generally it's object
+// function App() {
+//   const [state,dispatch] = useReducer(reducer,initialState)
+
+ 
+//   return (
+  
+//     <>
+//       <h1>{state.count}</h1>
+//       <button onClick={() => dispatch({type: "increment"})}>+</button>
+//       <button onClick={() => dispatch({type: "decrement"})}>-</button>
+//       <button onClick={() => dispatch({type: "reset"})}>reset</button>
+//     </>
+//   )
+// }
+
+// const initialState = {count:0}
+
+// const reducer = (state,action) => {
+//   switch(action.type){
+//     case "increment":
+//       return {
+//         ...state, 
+//         count: state.count + 1
+//       }
+//     case "decrement":
+//       return {
+//         ...state,
+//         count: state.count - 1
+//       }
+//     case "reset":
+//       return {
+//         ...state,
+//         count: 0 
+//       }
+//     default:
+//       return state;      
+//   }
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+// //import createContext
+// import { createContext } from "react"
+// import ComponentC from "./components/ComponentC"
+
+// //2. creating instance of (createContext)
+
+// export const Data = createContext()
+// export const Data1 = createContext()
+
+
+// function App() {
+//   const name = "lingling";
+//   const age = 18;
+
+//   return (
+//     //3. wrap our component into Provider Component
+//     <>
+//     <Data.Provider value={name}>
+//       <Data1.Provider value={age}>
+//       <ComponentC/>
+//       </Data1.Provider>
+//     </Data.Provider>  
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+// //import createContext
+// import { createContext } from "react"
+// import ComponentC from "./components/ComponentC"
+
+// //2. creating instance of (createContext)
+
+// export const Data = createContext()
+
+
+// function App() {
+//   const name = "lingling";
+//   const age = 18;
+
+//   return (
+//     //3. wrap our component into Provider Component
+//     <>
+//     <Data.Provider value={name}>
+//       <ComponentC/>
+//     </Data.Provider>  
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+// import ComponentA from "./components/ComponentA"
+
+// function App() {
+//   const name = "Lingling"
+//   return (
+//     <>
+//       <ComponentA name={name} />
+      
+      
+//     </>
+//   )
+// }
+
+// export default App
 
 
 
@@ -430,3 +606,17 @@ export default App
 //useEffect()
 //The useEffect hook allows you to perform side effects in your components.
 // some example of side effects are: fetching data, directly updating the DOM
+
+//useContext()
+//react context is a way to manage state globally.
+// it can be used together with the useState hook to share state between deeply nested components more easily than with useState alone. 
+
+//useReducer()
+//useReducer is a hook in react that is similar to useState,
+//but it is designed for more complex state objects or state transitions that involve multiple
+//sub-values.it allows you to manage state in a functional, immutable way. 
+
+// useRef()
+// useRef is a hook in react that allows you to access the properties of a DOM element.
+// It is useful when you need to access the value of an element, or the current dimensions of an element.
+

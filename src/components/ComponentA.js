@@ -1,11 +1,11 @@
 import React from 'react'
-import ComponentB from './ComponentB'
 
-function ComponentA({ name }) {
+
+function ComponentA() {
    
     return (
         <>
-            <ComponentB name={name} />
+            <h1>A</h1>
         </>
     
   )
